@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+
+  <div class="main-banner"style="background-image: url({% static 'assets/images/banner-bg.jpg' %});">
+<div class="container">
+    <div class="row">
+
+{% for movie in movies %}
+        <div class="col-3 col-md-3 team_col">
+<!--<div class="card" style="width: 18rem;">-->
+
+<!--    <a href=""><img src="{{prod.img.url}}" alt="{{prod.name}}"></a>-->
+    <a href="{% url 'movies_app:Details' movie.id %}"><img src="{{ movie.poster.url}}" alt="{{movie.movie_title}}" style="width:200px;height:250px;"></a>
+          <div class="card-body">
+            <h5 class="card-title">{{movie.movie_title}}</h5>
+            <p class="card-text">{{movie.description}}</p>
+             <b class="card-text">{{movie.hero_name}}</b><br>
+
+          </div>
+
+<!--</div>-->
+         </div>
+        <br>
+{% endfor %}
+
+</div>
+</div>
+
+
+{% endblock %}
+

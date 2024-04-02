@@ -1,0 +1,80 @@
+
+    {% extends 'base.html' %}
+    {% load static %}
+
+    {% block title %}Registration Form: Modest Movies{% endblock %}
+    {% block content %}
+      <div class="main-banner"style="background-image: url({% static 'assets/images/banner-bg.jpg' %});">
+    <div class="container">
+      <div class="row">
+    <form action="register_submit" method="post">
+          {% csrf_token %}
+    <div class="row centered-form">
+
+        <div class="container register-form">
+
+            <div class="form">
+<!--                	<div class="panel-heading">-->
+<!--			    		<h3 class="panel-title">Please sign up  <small>!</small></h3>-->
+<!--			 			</div>-->
+<!--                <div class="note">-->
+<!--                    <p></p>-->
+<!--                </div>-->
+
+                <div class="form-content">
+                    <div class="p-4 bg-white custom-shadow">
+                        <div class="row">
+<!--                        <div class="col-md-6">-->
+                        <div class="col-lg-6 offset-lg-3 centered">
+                            <div class="form-group">
+<!--                                <input type="text" name='username' class="form-control" placeholder="User Name *" value=""/>-->
+                                    <input type="text" name='username' class="form-control" placeholder="Enter the username">
+                            </div>
+                             <div class="form-group">
+                                 <input type="text" name='first_name' class="form-control" placeholder="Enter the First Name">
+<!--                                <input type="text" class="form-control" placeholder="Your Name *" value=""/>-->
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name='last_name'  class="form-control" placeholder="Enter the Last Name">
+<!--                                <input type="email" class="form-control" placeholder="Enter the email *" value=""/>-->
+                            </div>
+                            <div class="form-group">
+                                    <input type="password" name='password' class="form-control" placeholder="Enter the Password">
+<!--                                <input type="text" class="form-control" placeholder="Phone Number *" value=""/>-->
+                            </div>
+                            <div class="form-group">
+                                 <input type="password" name='re_password' class="form-control" placeholder="Re-Enter the Password">
+<!--                                <input type="text" class="form-control" placeholder="Your Password *" value=""/>-->
+                            </div>
+
+                            <div class="form-group">
+                                 <input type="email" name='email' class="form-control"  placeholder="Enter the email">
+<!--                                <input type="text" class="form-control" placeholder="Confirm Password *" value=""/>-->
+                            </div>
+
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-info btn-block">Register</button>
+<!--                                 <input type="submit" value="Register" class="btn btn-info btn-block">-->
+                            </div>
+
+                            </div>
+
+                        </div>
+<!--                            <div>-->
+        <!--                      <input type="submit" value="Register" class="btn btn-info btn-block">-->
+        <!--                        <button type="button" class="btnSubmit">Submit</button>-->
+<!--                            </div>-->
+
+<!--                    <button type="button" class="btnSubmit">Submit</button>-->
+                    </div>
+                </div>
+            </div>
+            </div>
+    </div>
+    </form>
+      </div>
+    </div>
+      </div>
+
+
+{% endblock %}

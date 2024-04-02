@@ -1,0 +1,176 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+  <div class="main-banner"style="background-image: url({% static 'assets/images/banner-bg.jpg' %});"><div  class="features" style="padding-top:0px; align:center;">
+    <div class="container">
+
+
+      <div class="row">
+          <div class="col-lg-9 col-md-6" >
+          <a href="">
+            <div class="item" style="background-color:#EED3E2">
+                  <div class="card-body" style="padding-top:0px">
+                      <b> <h3 class="card-title"style="font-family: Arial, sans-serif;">{{ movie.movie_title}}</h3></b>
+                    <p class="card-text"></p>
+                  </div>
+                <!--        <div class="col-lg-3 col-md-6">-->
+          <a href="">
+            <div class="item">
+              <div class="">
+                <img src="{{ movie.banner_img.url}}" alt="" style=": 44px;">
+              </div>
+              <h4></h4>
+            </div>
+          </a>
+        </div>
+
+          </div>
+
+          <div class="col-lg-3 col-md-3" style="height:100px" >
+          <a href="">
+            <div class="item" style="background-color:#EED3E2">
+                  <div class="card-body" style="padding-top:0px">
+                      <b> <h3 class="card-title"style="font-family: Arial, sans-serif;">{{ movie.movie_title}}</h3></b>
+                    <p class="card-text"></p>
+                  </div>
+                <!--        <div class="col-lg-3 col-md-6">-->
+          <a href="">
+            <div class="item">
+                	<div class="grid-container">
+<!--    <div class=" d-md-flex justify-content-between ">-->
+					<div class=" grid-item item3 ">
+				<div class="col-md-12 d-md-flex justify-content-between  mb-3 mb-md-0">
+								<div>
+									<h2>MY CART</h2>
+								</div>
+                <div class="col-md-3 text-right d-flex align-items-right">
+															<input type="button"
+																		class="form-control continue btn--continue-checkout  btn btn-primary w-100"
+
+																		value='CHECKOUT'
+																		id="checkoutitems">
+											</div>
+                </div>
+                    </div></div>
+              <h4></h4>
+            </div>
+          </a>
+        </div>
+<!--              <h4>Free Storage</h4>-->
+                  </div>
+      </div>
+
+
+
+
+
+
+      </div>
+             {% for i,j in zip_data %}
+
+                    <div class="row" style="margin-top:20px;">
+                            <div class="col-lg-12 col-md-6" >
+                                  <textarea style="padding:0px; text-align: center;" class="form-control " id="" rows="2" disabled>{{i.review}}</textarea>
+                            </div>
+                    </div>
+                    <div class="row"  style="margin-bottom:20px;">
+                            <div class="col-lg-9 col-md-6">
+                                <b><textarea style="padding:0px; text-align: center;background-color:gray;" class="form-control " id="" rows="2" disabled> REVIEWED BY: {{j.first_name}}  || {{i.date_review}} || Rating: {{ i.rating }}</textarea></b>
+                            </div>
+                            <div class="col-lg-3 ">
+                                          <div class="main-button form-control" style="padding:0px; text-align: center;background-color:gray;">
+                                            <a href="{% url 'movies_app:DeleteReview' i.id j.id %}">Delete</a>
+                                              <a href="shop.html">Edit</a>
+                                        </div>
+                            </div>
+                    </div>
+
+             {% endfor %}
+        </div>
+    </div>
+  </div>
+
+
+
+  <div  class="features" style="padding-top:200px;">
+    <div  class="container">
+      <div class="row">
+        <div class="col-lg-10 col-md-6" >
+<!--            <form method="post" enctype="multipart/form-data">-->
+<!--    {% csrf_token %}-->
+<!--                {{ form_review.as_p}}-->
+
+<!--    <input type="submit">-->
+<!--            <form method="post" enctype="multipart/form-data">-->
+<!--    {% csrf_token %}-->
+<!--                <div class="form-floating">-->
+<!--                    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>-->
+<!--                    <label for="floatingTextarea">Comments</label>-->
+<!--                </div>-->
+
+<!--                    {{ form_review.user }} &lt;!&ndash; Render movie field &ndash;&gt;-->
+
+
+<!--    {{ form_review.movie }} &lt;!&ndash; Render movie field &ndash;&gt;-->
+<!--    {{ form_review.review }} &lt;!&ndash; Render review field &ndash;&gt;-->
+<!--    {{ form_review.rating }} &lt;!&ndash; Render rating field &ndash;&gt;-->
+<!--    <p>Submitted by: {{ request.user.username }}</p> &lt;!&ndash; Display logged-in username &ndash;&gt;-->
+
+<!--    <input type="submit" value="Submit">-->
+<!--</form>-->
+            <div  class="features" style="padding-top:0px; align:center;">
+    <div class="container">
+      <div class="row">
+
+          <div class="col-lg-9 col-md-6" >
+
+            <div class="item" style="background-color:#EED3E2">
+                  <div class="card-body" style="padding-top:0px">
+                      <b> <h3 class="card-title"style="font-family: Arial, sans-serif;">Write Your Review  of {{ movie.movie_title}}</h3></b>
+                    <p class="card-text"></p>
+
+                  </div>
+                <!--        <div class="col-lg-3 col-md-6">-->
+
+            <div class="item">
+              <div class="">
+                <div class="form-floating">
+
+                       <form method="post" >
+                 {% csrf_token %}
+
+<!--                </div>-->
+                     <textarea class="form-control" name="review" cols="40" rows="10" required id="id_review" placeholder="Leave a comment here" ></textarea> <!-- Render review field -->
+                    <input type="text" class="form-control" name="rating" maxlength="5" required id="id_rating" placeholder="Your Rating Between 1 and 5" > <!-- Render rating field -->
+                         <p>Submitted by: {{ user.username }} </p> <!-- Display logged-in username -->
+                        <input type="submit" value="Submit">
+                    </form>
+
+                </div>
+              </div>
+
+            </div>
+
+        </div>
+          </div>
+
+
+
+
+
+
+                     <!-- Render movie field -->
+
+
+
+
+
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+{% endblock %}
+

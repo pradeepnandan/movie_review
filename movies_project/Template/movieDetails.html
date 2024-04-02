@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+  <div class="main-banner"style="background-image: url({{ movie_select.banner_img.url }});height:250px;width:1400px;">
+<!--    <div class="main-banner"style="background-image: url({% static 'assets/images/banner-bg1.webp' %});">-->
+    <div class="container">
+      <div class="row">
+  <div class="card-deck">
+<!--  <div class="card">-->
+<!--    <img class="card-img-top" src="..." alt="Card image cap">-->
+<!--    <div class="card-body">-->
+      <h5 class="card-title"></h5>
+    <div>
+
+      <span>
+
+
+
+
+    </span>
+      <div>
+
+      </div>
+    </div>
+<!--      <p class="card-text">{{ movie_select.movie_description }}</p>-->
+<!--    </div>-->
+<!--&lt;!&ndash;    <div class="card-footer">&ndash;&gt;-->
+<!--&lt;!&ndash;      <small class="text-muted">Last updated 3 mins ago</small>&ndash;&gt;-->
+<!--&lt;!&ndash;    </div>&ndash;&gt;-->
+<!--  </div>-->
+<!--  </div>-->
+<!--      </div>-->
+    </div>
+    <div class="features" style="height:75%;">
+  <div class="card-header">
+
+  </div>
+
+</div>
+<!--Trending-->
+  <div  class="features" style="padding-top:200px;">
+    <div  class="container">
+      <div class="row">
+        <div class="col-lg-10 col-md-6" >
+          <a href="#">
+            <div class="item" style="background-color:#EED3E2">
+                  <div class="card-body" style="padding-top:50px">
+                      <b> <h3 class="card-title"style="font-family: Arial, sans-serif;">{{ movie_select.movie_title}}</h3></b>
+                    <p class="card-text">{{ movie_select.movie_description}}.</p>
+                    <a href="{% url 'movies_app:ReviewMovies' movie_select.id %}" class="btn btn-primary">Your Review</a>
+                  </div>
+                <!--        <div class="col-lg-3 col-md-6">-->
+          <a href="#">
+            <div class="item">
+              <div class="image">
+                <img src="{% static 'assets/images/featured-02.png' %}" alt="" style="max-width: 44px;">
+              </div>
+              <h4>User More</h4>
+            </div>
+          </a>
+        </div>
+<!--              <h4>Free Storage</h4>-->
+            </div>
+          </a>
+        </div>
+<!--        <div class="col-lg-3 col-md-6">-->
+<!--          <a href="#">-->
+<!--            <div class="item">-->
+<!--              <div class="image">-->
+<!--                <img src="{% static 'assets/images/featured-02.png' %}" alt="" style="max-width: 44px;">-->
+<!--              </div>-->
+<!--              <h4>User More</h4>-->
+<!--            </div>-->
+<!--          </a>-->
+<!--        </div>-->
+<!--        <div class="col-lg-3 col-md-6">-->
+<!--          <a href="#">-->
+<!--            <div class="item">-->
+<!--              <div class="image">-->
+<!--                <img src="{% static 'assets/images/featured-03.png' %}" alt="" style="max-width: 44px;">-->
+<!--              </div>-->
+<!--              <h4>Reply Ready</h4>-->
+<!--            </div>-->
+<!--          </a>-->
+<!--        </div>-->
+<!--        <div class="col-lg-3 col-md-6">-->
+<!--          <a href="#">-->
+<!--            <div class="item">-->
+<!--              <div class="image">-->
+<!--                <img src="{% static 'assets/images/featured-04.png' %}" alt="" style="max-width: 44px;">-->
+<!--              </div>-->
+<!--              <h4>Easy Layout</h4>-->
+<!--            </div>-->
+<!--          </a>-->
+<!--        </div>-->
+      </div>
+    </div>
+  </div>
+
+
+{% endblock %}

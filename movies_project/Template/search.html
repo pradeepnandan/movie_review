@@ -1,0 +1,35 @@
+{% include "base.html" %}
+{% load static %}
+{% block content %}
+<div>
+    <p class=" my_search_text" style="padding-top:20px;">Search Result for: <b>{{query}}</b></p>
+</div>
+<div class="container">
+    <div class="row-mx-auto">
+     {% for mov in movie %}
+        <div class="col-xl-3 col-md-6 team_col">
+<div class="card" style="width: 18rem;">
+
+<!--    <a href=""><img src="{{prod.img.url}}" alt="{{prod.name}}"></a>-->
+    <a href=""><img src="{{ mov.poster.url}}" alt="{{mov.movie_title}}"></a>
+          <div class="card-body">
+            <h5 class="card-title">{{mov.movie_title}}</h5>
+            <p class="card-text">{{mov.movie_description}}</p>
+<!--              <b class="card-text">₹ {{prod.price}}</b><br>-->
+           <center> <a href="#" class="btn btn-primary">OK</a></center>
+          </div>
+
+</div>
+         </div>
+        {% empty %}
+        <div class="row mx-auto">
+            <p class="text-center my_search_text"> "0 Results Found"</p>
+
+        </div>
+        {% endfor %}
+
+    </div>
+
+</div>
+
+{% endblock %}
