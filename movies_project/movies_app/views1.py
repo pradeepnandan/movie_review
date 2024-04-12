@@ -92,9 +92,6 @@ def DeleteMovies(request,pk):
     return render(request,'test.html')
 @login_required
 def ReviewMovies(request,pk):
-    #movie_select = get_object_or_404(Movies, pk=pk)
-
-
     movie_list=[] #List of user details related to reviewd by
     movie_reviewed=Reviews.objects.all().filter(movie_id=pk)
 
@@ -112,15 +109,10 @@ def ReviewMovies(request,pk):
             review_save.user=request.user
             review_save.movie=movie
             review_save.save()
-
         #return render(request, 'movie_review.html')
         return redirect('movies_app:ReviewMovies',pk=pk)
-    # if movie :
-    #     return render(request, 'movieDetails.html', {'movie_select': movie})
-    return render(request, 'movie_review.html',
-                      {'movie': movie, 'movie_reviewed_l': movie_reviewed, 'zip_data': zip_data})
 
-        # return redirect('/')
+            # return redirect('/')
             #movie_reviewed = Reviews.objects.all().filter(movie_id=pk)
 
         # return render(request, 'movie_review.html', {'movie': movie, 'movie_reviewed_l': movie_reviewed, 'zip_data': zip_data})
@@ -129,23 +121,13 @@ def ReviewMovies(request,pk):
         # user=user.username
         # form_review = ReviewMoviesForm() #To pre-populate username in the form
 
-
+    return render(request, 'movie_review.html', {'movie': movie,'movie_reviewed_l':movie_reviewed,'zip_data':zip_data})
 
 
 def Details(request,pk):
-    movie_list=[] #List of user details related to reviewd by
-    movie_reviewed=Reviews.objects.all().filter(movie_id=pk)
-
-    for review in movie_reviewed:
-        #movie_reviewed_user=Users.objects.all().filter(id=review.user_id)
-        movie_reviewed_user=Users.objects.get(id=review.user_id)
-        movie_list.append(movie_reviewed_user)
-    #print(movie_list)
-    zip_data = zip(movie_reviewed, movie_list)
-    # movie = get_object_or_404(Movies, pk=pk)
     movie_select=get_object_or_404(Movies,pk=pk)
     #print(movie_select)
-    return render(request,'movieDetails.html',{'movie_select': movie_select, 'movie_reviewed_l': movie_reviewed, 'zip_data': zip_data})
+    return render(request,'movieDetails.html',{'movie_select':movie_select})
 
 def rate_count(request):
     counter=0

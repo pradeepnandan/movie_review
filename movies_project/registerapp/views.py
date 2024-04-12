@@ -8,6 +8,7 @@ from .models import Users
 from movies_app.models import Genres,Movies
 from .forms import UserProfileForm
 
+
 # Create your views here.
 def register(request):
     return render(request,'register.html')
@@ -24,17 +25,17 @@ def register_submit(request):
        if password==cpassword:
            if Users.objects.filter(username=username).exists():
                messages.info(request,'Already Username taken')
-               return redirect('register')
+               return redirect('/register')
            elif Users.objects.filter(email=email).exists():
                messages.info(request,'Already email taken')
            else:
                user=Users.objects.create_user(username=username,first_name=firstname,last_name=lastname,password=password,email=email)
                user.save()
                messages.info(request,'User is Added')
-               return redirect('/')
+               return redirect('/register/login')
        else:
            messages.info(request,'Passwords not matching')
-           return redirect('register')
+           return redirect('register/register')
        return redirect('/')
    return render(request,'register.html')
 

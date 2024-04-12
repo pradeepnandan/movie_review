@@ -24,7 +24,7 @@ app_name = 'registerapp'
 
 urlpatterns = [
     path('login/', views.login, name='login'),
-    path('register_submit/',views.register_submit,name='register_submit'),
+    path('register_submit',views.register_submit,name='register_submit'),
     path('register/logout',views.logout,name='logout'),
     path('register/edit_profile',views.edit_profile, name='edit_profile'),
     path('', views.register, name='register'),

@@ -11,6 +11,7 @@
                         <img src= "{% static 'assets/images/logo1.png' %}"  alt="" style="width: 158px;">
                     </a>
                     <!-- ***** Logo End ***** -->
+
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
                          {% if user.is_authenticated %}
@@ -27,9 +28,9 @@
 
                         {% else %}
                                         <li><a href="/" class="active">Home</a></li>
-                                        <li><a href="">Movie Reviews</a></li>
-                                        <li><a href="">Latest Movies</a></li>
-									<li><a  href="register">Register</a></li>
+                                        <li><a href="/#movies_tag"> Movies </a></li>
+<!--                                        <li><a href="">Latest Movies</a></li>-->
+									<li><a  href="{% url 'registerapp:register' %}">Register</a></li>
 
                                      <li><a href="{% url 'registerapp:login' %}">Sign In</a></li>
                         <!--<button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off"><a href="{% url 'registerapp:login' %}">Log In</a></button>-->

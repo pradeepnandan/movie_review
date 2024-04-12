@@ -48,52 +48,46 @@
                   <div class="card-body" style="padding-top:50px">
                       <b> <h3 class="card-title"style="font-family: Arial, sans-serif;">{{ movie_select.movie_title}}</h3></b>
                     <p class="card-text">{{ movie_select.movie_description}}.</p>
-                    <a href="{% url 'movies_app:ReviewMovies' movie_select.id %}" class="btn btn-primary">Your Review</a>
-                  </div>
+                    <a href="{% url 'movies_app:ReviewMovies' movie_select.id %}" class="btn btn-primary">Do Your Review</a>
+
+                   <a href="{% url 'movies_app:EditMovies' movie_select.id %}" class="btn btn-primary">Edit Movie</a></div>
                 <!--        <div class="col-lg-3 col-md-6">-->
           <a href="#">
             <div class="item">
-              <div class="image">
-                <img src="{% static 'assets/images/featured-02.png' %}" alt="" style="max-width: 44px;">
-              </div>
-              <h4>User More</h4>
+<!--              <div class="image">-->
+<!--                <img src="{% static 'assets/images/featured-02.png' %}" alt="" style="max-width: 44px;">-->
+<!--              </div>-->
+<!--              <h4>User More</h4>-->
+                 {% for i,j in zip_data %}
+
+                    <div class="row" style="margin-top:20px;" >
+                            <div class="col-lg-6 col-md-3" >
+                                  <textarea style="padding:0px; text-align: center;" class="form-control " id="" rows="2" disabled>{{i.review}}</textarea>
+                            </div>
+<!--                    </div>-->
+<!--                    <div class="row"  style="margin-bottom:20px;">-->
+                            <div class="col-lg-3 col-md-2">
+                                <b><textarea style="padding:0px; text-align: center;background-color:;" class="form-control " id="" rows="2" disabled> REVIEWED BY: {{j.first_name}}  || {{i.date_review}} </textarea></b>
+                            </div>
+                        <div class="col-lg-3 col-md-1">
+                                <b><textarea style="padding:0px; text-align: center;background-color:;" class="form-control " id="" rows="2" disabled> Rating: {{ i.rating }}</textarea></b>
+                            </div>
+
+                    </div>
+
+             {% endfor %}
+
             </div>
           </a>
+
+
+
         </div>
 <!--              <h4>Free Storage</h4>-->
             </div>
           </a>
         </div>
-<!--        <div class="col-lg-3 col-md-6">-->
-<!--          <a href="#">-->
-<!--            <div class="item">-->
-<!--              <div class="image">-->
-<!--                <img src="{% static 'assets/images/featured-02.png' %}" alt="" style="max-width: 44px;">-->
-<!--              </div>-->
-<!--              <h4>User More</h4>-->
-<!--            </div>-->
-<!--          </a>-->
-<!--        </div>-->
-<!--        <div class="col-lg-3 col-md-6">-->
-<!--          <a href="#">-->
-<!--            <div class="item">-->
-<!--              <div class="image">-->
-<!--                <img src="{% static 'assets/images/featured-03.png' %}" alt="" style="max-width: 44px;">-->
-<!--              </div>-->
-<!--              <h4>Reply Ready</h4>-->
-<!--            </div>-->
-<!--          </a>-->
-<!--        </div>-->
-<!--        <div class="col-lg-3 col-md-6">-->
-<!--          <a href="#">-->
-<!--            <div class="item">-->
-<!--              <div class="image">-->
-<!--                <img src="{% static 'assets/images/featured-04.png' %}" alt="" style="max-width: 44px;">-->
-<!--              </div>-->
-<!--              <h4>Easy Layout</h4>-->
-<!--            </div>-->
-<!--          </a>-->
-<!--        </div>-->
+
       </div>
     </div>
   </div>

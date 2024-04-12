@@ -38,13 +38,13 @@
 
 												<table class="table">
                                                           <thead>
-    <tr>
-      <th scope="col"></th>
-      <th scope="col"></th>
-      <th scope="col"></th>
-      <th scope="col"></th>
-    </tr>
-  </thead>
+                                                            <tr>
+                                                              <th scope="col"></th>
+                                                              <th scope="col"></th>
+                                                              <th scope="col"></th>
+                                                              <th scope="col"></th>
+                                                            </tr>
+                                                            </thead>
                                                       <tbody>
                                                         <tr>
                                                           <td><strong>CAST:</strong></td>
@@ -169,8 +169,11 @@
 
 <!--                </div>-->
                      <textarea class="form-control" name="review" cols="40" rows="10" required id="id_review" placeholder="Leave a comment here" ></textarea> <!-- Render review field -->
-                    <input type="text" class="form-control" name="rating" maxlength="5" required id="id_rating" placeholder="Your Rating Between 1 and 5" > <!-- Render rating field -->
-                         <p>Submitted by: {{ user.username }} </p> <!-- Display logged-in username -->
+<!--                    <input type="text" class="form-control" name="rating" maxlength="5" required id="id_rating" placeholder="Your Rating Between 1 and 5" > &lt;!&ndash; Render rating field &ndash;&gt;-->
+                         <select class="form-control form-control-sm" name="rating" >
+  <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+</select>
+                           <p>Submitted by: {{ user.username }} </p> <!-- Display logged-in username -->
                         <input type="submit" value="Submit">
                     </form>
 
